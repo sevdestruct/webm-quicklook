@@ -32,7 +32,7 @@ It ships three extensions bundled in one app:
    ```sh
    ./install.sh
    ```
-   It installs to `/Applications/Webm Quicklook.app`. Keep the app there — macOS
+   It installs to `/Applications/WebMQuickLook.app`. Keep the app there — macOS
    looks for the extensions inside the app bundle, so moving it may require a
    relaunch.
 2. For **native playback**, enable the MediaExtension once:
@@ -42,7 +42,7 @@ It ships three extensions bundled in one app:
 
 ## Uninstall
 
-Delete `/Applications/Webm Quicklook.app`. The extensions live inside the bundle
+Delete `/Applications/WebMQuickLook.app`. The extensions live inside the bundle
 and deregister with it.
 
 ## Building from source

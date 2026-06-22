@@ -11,8 +11,9 @@ set -e
 
 CERT="Apple Development: Sev Gerk (XV4P32S998)"
 PROJ="/Users/sev/Development/Webm-QuickLook-Plug-In"
-BUILT_APP="$PROJ/build/Debug/Webm Quicklook.app"
-APP="/Applications/Webm Quicklook.app"
+BUILT_APP="$PROJ/build/Debug/WebMQuickLook.app"
+APP="/Applications/WebMQuickLook.app"
+OLD_APP="/Applications/Webm Quicklook.app"   # pre-rename bundle, removed on install
 APPEX="$APP/Contents/PlugIns/WebM Quicklook.appex"
 THUMB_APPEX="$APP/Contents/PlugIns/WebM Quicklook Thumbnail.appex"
 MEDIA_APPEX="$APP/Contents/Extensions/WebM MediaReader.appex"
@@ -50,6 +51,12 @@ echo "$BUILD_OUTPUT" | grep -q "BUILD SUCCEEDED" || MEDIA_OK=0
 
 echo "→ Installing to $APP…"
 rm -rf "$APP"
+# Remove the pre-rename bundle so we don't leave two competing copies registered.
+if [ -d "$OLD_APP" ]; then
+  /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister \
+    -u "$OLD_APP" >/dev/null 2>&1 || true
+  rm -rf "$OLD_APP"
+fi
 cp -R "$BUILT_APP" "$APP"
 if [ "$MEDIA_OK" = "1" ]; then
   mkdir -p "$APP/Contents/Extensions"

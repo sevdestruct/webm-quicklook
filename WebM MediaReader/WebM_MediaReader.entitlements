@@ -10,7 +10,7 @@
 	<true/>
 	<key>com.apple.security.temporary-exception.files.absolute-path.read-only</key>
 	<array>
-		<string>/Applications/Webm Quicklook.app/</string>
+		<string>/Applications/WebMQuickLook.app/</string>
 	</array>
 </dict>
 </plist>

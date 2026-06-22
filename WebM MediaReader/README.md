@@ -19,12 +19,12 @@ blocked at the codec layer** (see "Where it stops" below).
 - `Info.plist` — `EXExtensionPointIdentifier = com.apple.mediaextension.formatreader`,
   registers for `.webm` / `org.webmproject.webm`.
 - `WebM_MediaReader.entitlements` — `mediaextension.formatreader` + `app-sandbox`
-  + read-only-from-`/Applications/Webm Quicklook.app/` exception.
+  + read-only-from-`/Applications/WebMQuickLook.app/` exception.
 
 ## Build / install
 
 `install.sh` at the repo root builds all three extensions (preview, thumbnail,
-media reader) and signs+installs into `/Applications/Webm Quicklook.app`. The
+media reader) and signs+installs into `/Applications/WebMQuickLook.app`. The
 media reader is special:
 
 - It's built with **automatic signing** + `-allowProvisioningUpdates` because the
